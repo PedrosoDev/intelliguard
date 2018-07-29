@@ -2,6 +2,7 @@ IntelliGuard 2
 ============
 
 >Updated and maintained by iGufGuf, originally created by [Ronniekk](https://github.com/ronniekk/intelliguard)
+>
 >Created and tested for intellij 2018.2
 
 ### Features
