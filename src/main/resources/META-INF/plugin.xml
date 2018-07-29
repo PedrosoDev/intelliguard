@@ -27,38 +27,14 @@
     <vendor url="https://github.com/iGufGuf/intelliguard" email="contact at igufguf.com">Ronnie Kolehmainen and iGufGuf</vendor>
 
     <change-notes><![CDATA[
-        <ul>0.11
-            <li>Build for IDEA 2018.2</li>
+
+        <ul>2.0
+            <li>Build for intellij IDEA 2018.2</li>
             <li>Fixed icon issue</li>
             <li>Migrate from deprecated intellij openapi</li>
         </ul>
-        <ul>0.10
-            <li>Build for IDEA 12</li>
-        </ul>
-        <ul>0.9.6
-            <li>Fixed inspection ids</li>
-        </ul>
-        <ul>0.9.5
-            <li>Fixed @NotNull assertion error</li>
-            <li>Improved/added dialogs for export</li>
-            <li>Android support</li>
-        </ul>
-        <ul>0.9.4
-            <li>Inspections for reflection issues with servlets, applets, etcetera</li>
-            <li>J2ME support</li>
-            <li>Fixed listener for renaming of packages</li>
-        </ul>
-        <ul>0.9.3
-            <li>Inspections for plugin development</li>
-        </ul>
-        <ul>0.9.2
-            <li>yGuard and ProGuard export</li>
-        </ul>
-        <ul>0.9.1
-            <li>Inspections for serialization issues</li>
-        </ul>
-    ]]>
-    </change-notes>
+
+    ]]></change-notes>
 
     <project-components>
         <component>
