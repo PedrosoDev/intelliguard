@@ -27,7 +27,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import java.io.*;
 
 /**
- * A slightly modified version of {@link org.apache.tools.ant.helper.ProjectHelper2} in the way
+ * A slightly modified version of {@link ProjectHelper2} in the way
  * that it only deals with in-memory build files.
  */
 public class YProjectHelper extends ProjectHelper2

@@ -16,23 +16,22 @@
 
 package com.github.intelliguard.runner;
 
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.compiler.make.ManifestBuilder;
-import com.intellij.openapi.roots.ProjectRootsTraversing;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.util.PathsList;
 import com.github.intelliguard.model.JarConfig;
 import com.github.intelliguard.util.ModuleUtils;
-
-import java.io.*;
-import java.util.jar.Manifest;
-import java.util.jar.JarOutputStream;
-import java.util.jar.JarEntry;
-import java.util.List;
-import java.util.ArrayList;
-
+import com.intellij.openapi.compiler.make.ManifestBuilder;
+import com.intellij.openapi.module.Module;
+import com.intellij.openapi.roots.OrderEnumerator;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.util.PathsList;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.jar.JarEntry;
+import java.util.jar.JarOutputStream;
+import java.util.jar.Manifest;
 
 /**
  * Created by IntelliJ IDEA.
@@ -169,7 +168,7 @@ public class JarTask implements Runnable
         String libsPrefix = jarConfig.getLinkLibraries();
         if (libsPrefix != null)
         {
-            PathsList dependenciesList = ProjectRootsTraversing.collectRoots(module, ProjectRootsTraversing.PROJECT_LIBRARIES);
+            PathsList dependenciesList = OrderEnumerator.orderEntries(module).withoutModuleSourceEntries().getPathsList();
             List<VirtualFile> virtualFileList = dependenciesList.getVirtualFiles();
             if (!virtualFileList.isEmpty())
             {

@@ -28,5 +28,5 @@ import javax.swing.*;
  */
 public interface Icons
 {
-    public static final Icon OBFUSCATION_NODE_ICON = IconLoader.getIcon("/com/github/intelliguard/guard_mask_16x16.png");
+    public static final Icon OBFUSCATION_NODE_ICON = IconLoader.getIcon("/guard_mask_16x16.png");
 }

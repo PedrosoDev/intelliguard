@@ -122,7 +122,7 @@ public abstract class GuardInspectionBase extends LocalInspectionTool
         try
         {
             // Extensions are private in IdeaPluginDescriptorImpl so we need to parse the xml
-            final URL url = new File(new File(moduleIoDir, PluginManager.META_INF), PluginManager.PLUGIN_XML).toURI().toURL();
+            final URL url = new File(new File(moduleIoDir, "META-INF"), PluginManager.PLUGIN_XML).toURI().toURL();
             Document document = JDOMUtil.loadDocument(url);
             document = JDOMXIncluder.resolve(document, url.toExternalForm());
             final Element rootElement = document.getRootElement();
