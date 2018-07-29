@@ -1,5 +1,10 @@
-IntelliGuard
+IntelliGuard 2
 ============
+
+>Updated and maintained by iGufGuf, originally created by [Ronniekk](https://github.com/ronniekk/intelliguard)
+>Created and tested for intellij 2018.2
+
+### Features
 
 Obfuscation made easy.
 
@@ -9,6 +14,13 @@ IntelliGuard integrates yGuard - a free Java bytecode obfuscator - with IntelliJ
 * Refactor support. Kept symbols remain unobfuscated after rename or move.
 * Inspections for common obfuscation mistakes.
 * Optional (toggleable) gutter icons for obfuscated symbols.
-* Export configuration for yGuard and ProGuard format.
+* Export configuration for [yGuard](http://www.yworks.com/en/products_yguard_about.html) and [ProGuard](http://proguard.sourceforge.net/) format.
 
-Docs still hosted at [Google](http://code.google.com/p/intelliguard/).
+
+### General usage
+
+Add Obfuscation facet to your Java module to get going, 
+"Project Structure (CTRL+SHIFT+ALT+S)" or "Module Settings" in project explorer. 
+Obfuscation actions will only be visible in an Obfuscation facet.
+
+
