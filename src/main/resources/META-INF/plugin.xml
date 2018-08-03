@@ -24,9 +24,13 @@
 
     <idea-version since-build="182"/>
 
-    <vendor url="https://github.com/iGufGuf/intelliguard" email="contact at igufguf.com">Ronnie Kolehmainen and iGufGuf</vendor>
+    <vendor url="https://github.com/iGufGuf/intelliguard" email="contact at igufguf.com">iGufGuf</vendor>
 
     <change-notes><![CDATA[
+
+        <ul>2.0.1
+            <li>Added property "naming-scheme" and "language-conformity" to the ui</li>
+        </ul>
 
         <ul>2.0
             <li>Build for intellij IDEA 2018.2</li>
