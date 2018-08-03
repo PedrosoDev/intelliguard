@@ -55,6 +55,12 @@ public class GuardFacetConfiguration implements FacetConfiguration, PersistentSt
     // rename property: <property name="error-checking" value="pedantic"/>
     public boolean errorChecking = true;
 
+    // rename property: <property name="naming-scheme" value=""/>
+    public String namingScheme = "small";
+
+    // rename property: <property name="language-conformity" value=""/>
+    public String namingSafety = "compatible";
+
     // keep attributes
     public boolean sourcefile; // sourcefile
     public boolean linenumbertable; // linenumbertable
@@ -99,6 +105,8 @@ public class GuardFacetConfiguration implements FacetConfiguration, PersistentSt
         this.outFile = state.outFile;
         this.conservemanifest = state.conservemanifest;
         this.errorChecking = state.errorChecking;
+        this.namingScheme = state.namingScheme;
+        this.namingSafety = state.namingSafety;
         this.linenumbertable = state.linenumbertable;
         this.localvariabletable = state.localvariabletable;
         this.localvariabletypetable = state.localvariabletypetable;
@@ -131,6 +139,8 @@ public class GuardFacetConfiguration implements FacetConfiguration, PersistentSt
         if (sourcefile != that.sourcefile) return false;
         if (mainclass != null ? !mainclass.equals(that.mainclass) : that.mainclass != null) return false;
         if (yGuardJar != null ? !yGuardJar.equals(that.yGuardJar) : that.yGuardJar != null) return false;
+        if (namingScheme != null ? !namingScheme.equals(that.namingScheme) : that.namingScheme != null ) return false;
+        if (namingSafety != null ? !namingSafety.equals(that.namingSafety) : that.namingSafety != null ) return false;
 
         return true;
     }

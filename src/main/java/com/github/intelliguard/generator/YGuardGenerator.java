@@ -69,12 +69,6 @@ public class YGuardGenerator
             sb.append(CLOSE_EXTERNAL_CLASSES);
         }
 
-        /* TODO:
-                    <property name="language-conformity" value="illegal"/>
-                    <property name="naming-scheme" value="mix"/>
-
-         */
-
         if (configuration.mainclass.length() != 0)
         {
             sb.append(MessageFormat.format(OPEN_RENAME_WITH_MAIN_CLASS, configuration.mainclass, logFile, configuration.conservemanifest, configuration.replaceClassNameStrings));
@@ -87,6 +81,20 @@ public class YGuardGenerator
         if (configuration.errorChecking)
         {
             sb.append(PEDANTIC_ERROR_CHECKING);
+        }
+
+        /* TODO:
+                    <property name="language-conformity" value="illegal"/>
+                    <property name="naming-scheme" value="mix"/>
+
+         */
+
+        if ( configuration.namingScheme != null ) {
+            sb.append(MessageFormat.format(NAMING_SCHEME, configuration.namingScheme));
+        }
+
+        if ( configuration.namingSafety != null ) {
+            sb.append(MessageFormat.format(NAMING_SAFETY, configuration.namingSafety));
         }
 
         if (!configuration.keepers.isEmpty())
@@ -131,6 +139,8 @@ public class YGuardGenerator
     private static final String IN_OUT_PAIR = "            <inoutpair in=\"{0}\" out=\"{1}\"/>\n";
     private static final String TASK_DEF = "        <taskdef name=\"yguard\" classname=\"com.yworks.yguard.YGuardTask\" classpath=\"{0}\"/>\n";
     private static final String PEDANTIC_ERROR_CHECKING = "                <property name=\"error-checking\" value=\"pedantic\"/>\n";
+    private static final String NAMING_SCHEME = "                <property name=\"naming-scheme\" value=\"{0}\"/>\n";
+    private static final String NAMING_SAFETY = "                <property name=\"language-conformity\" value=\"{0}\"/>\n";
 
     private static final String CLOSE_RENAME = "            </rename>\n";
     private static final String CLOSE_YGUARD = "        </yguard>\n";

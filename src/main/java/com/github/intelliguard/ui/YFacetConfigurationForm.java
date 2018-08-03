@@ -34,6 +34,8 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -60,6 +62,8 @@ public class YFacetConfigurationForm
     private TextFieldWithBrowseButton mainClass;
     private JButton downloadYGuardButton;
     private TextFieldWithBrowseButton yJarPath;
+    private JComboBox namingSchemeSelect;
+    private JComboBox namingSafetySelect;
     private static final String YGUARD_DOWNLOAD_URL = "http://www.yworks.com/en/products_yguard_about.html";
 
     public YFacetConfigurationForm(@NotNull final FacetEditorContext editorContext, @NotNull final FacetValidatorsManager validatorsManager, @NotNull final GuardFacetConfiguration state)
@@ -216,10 +220,88 @@ public class YFacetConfigurationForm
                 return ObfuscatorUtils.checkYGuard(yJarPath.getText());
             }
         }, yJarPath);
+
+
+        // Naming scheme
+        ComboBoxItem[] namingSchemeOptions = {
+                new ComboBoxItem("Small file size", "small"),
+                new ComboBoxItem("Best obfuscation", "best"),
+                new ComboBoxItem("Small file size and good obfuscation", "mix")
+        };
+
+        for ( int i = 0; i < namingSchemeOptions.length; i++ ) {
+            ComboBoxItem item = namingSchemeOptions[i];
+            namingSchemeSelect.addItem(item);
+
+            if ( state.namingScheme != null && state.namingScheme.equals(item.getValue()) ) {
+                namingSchemeSelect.setSelectedIndex(i);
+            }
+        }
+
+        namingSchemeSelect.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if ( e.getStateChange() != ItemEvent.SELECTED ) return;
+
+                state.namingScheme = ((ComboBoxItem) e.getItem()).getValue();
+            }
+        });
+
+        // Naming safety
+        ComboBoxItem[] namingSafetyOptions = {
+                new ComboBoxItem("Compatible names", "compatible"),
+                new ComboBoxItem("Legal names", "legal"),
+                new ComboBoxItem("Illegal names", "illegal")
+        };
+
+        for ( int i = 0; i < namingSafetyOptions.length; i++ ) {
+            ComboBoxItem item = namingSafetyOptions[i];
+            namingSafetySelect.addItem(item);
+
+            if ( state.namingSafety != null && state.namingSafety.equals(item.getValue()) ) {
+                namingSafetySelect.setSelectedIndex(i);
+            }
+        }
+
+        namingSafetySelect.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if ( e.getStateChange() != ItemEvent.SELECTED ) return;
+
+                state.namingSafety = ((ComboBoxItem) e.getItem()).getValue();
+            }
+        });
     }
 
     public JPanel getPanel()
     {
         return panel;
+    }
+
+    private class ComboBoxItem {
+        private String key;
+        private String value;
+
+        public ComboBoxItem(String key, String value)
+        {
+            this.key = key;
+            this.value = value;
+        }
+
+        @Override
+        public String toString()
+        {
+            return key;
+        }
+
+        public String getKey()
+        {
+            return key;
+        }
+
+        public String getValue()
+        {
+            return value;
+        }
     }
 }

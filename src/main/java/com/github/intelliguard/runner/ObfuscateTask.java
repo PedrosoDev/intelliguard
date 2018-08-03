@@ -25,7 +25,7 @@ import org.apache.tools.ant.Project;
 import org.apache.tools.ant.ProjectHelper;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.ByteArrayInputStream;
+import java.io.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -46,6 +46,7 @@ public class ObfuscateTask implements Runnable
 
     public void run()
     {
+
         final String buildXml = YGuardGenerator.generateBuildXml(guardFacet);
         final Project project = new YProject(runProgress);
         final ProjectHelper projectHelper = new YProjectHelper();
@@ -60,5 +61,22 @@ public class ObfuscateTask implements Runnable
         {
             runProgress.markError(e.getMessage());
         }
+
+        /* // DEBUG
+
+        File outFile = new File(guardFacet.getConfiguration().outFile);
+        outFile = new File(outFile.getParent(), "yguard.xml");
+
+        try (
+            FileOutputStream fos = new FileOutputStream(outFile)
+        ){
+            PrintWriter writer = new PrintWriter(fos);
+            writer.print(buildXml);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        */
+
     }
 }
