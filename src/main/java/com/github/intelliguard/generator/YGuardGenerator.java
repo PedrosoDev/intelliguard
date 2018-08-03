@@ -83,12 +83,6 @@ public class YGuardGenerator
             sb.append(PEDANTIC_ERROR_CHECKING);
         }
 
-        /* TODO:
-                    <property name="language-conformity" value="illegal"/>
-                    <property name="naming-scheme" value="mix"/>
-
-         */
-
         if ( configuration.namingScheme != null ) {
             sb.append(MessageFormat.format(NAMING_SCHEME, configuration.namingScheme));
         }
