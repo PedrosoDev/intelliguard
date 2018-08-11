@@ -24,4 +24,6 @@ Add Obfuscation facet to your Java module to get going,
 "Project Structure (CTRL+SHIFT+ALT+S)" or "Module Settings" in project explorer. 
 Obfuscation actions will only be visible in an Obfuscation facet.
 
+You can build the jar file from your module in the "build" menu.
+
 
